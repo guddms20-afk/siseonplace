@@ -88,7 +88,7 @@ h2 { margin-bottom: 22px; font-size: clamp(36px, 5vw, 62px); line-height: 1.18; 
   border-radius: 20px;
   background:
     linear-gradient(to top, rgba(37,25,20,.38), transparent 55%),
-    url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1400&q=85') center/cover;
+    url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1400&q=85') center/cover;
 }
 .hero-card-bottom { padding: 18px 6px 4px; }
 .hero-card-bottom strong { font-size: 17px; }
