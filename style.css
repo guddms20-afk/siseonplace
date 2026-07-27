@@ -88,7 +88,7 @@ h2 { margin-bottom: 22px; font-size: clamp(36px, 5vw, 62px); line-height: 1.18; 
   border-radius: 20px;
   background:
     linear-gradient(to top, rgba(37,25,20,.38), transparent 55%),
-    url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1400&q=85') center/cover;
+    url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1400&q=88') center/cover;
 }
 .hero-card-bottom { padding: 18px 6px 4px; }
 .hero-card-bottom strong { font-size: 17px; }
@@ -139,18 +139,27 @@ h2 { margin-bottom: 22px; font-size: clamp(36px, 5vw, 62px); line-height: 1.18; 
 .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; align-items: center; }
 .contact-grid > div:first-child > p:last-child { color: var(--muted); }
 .contact-card { overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: var(--ivory); }
-.contact-card a { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 25px 28px; border-bottom: 1px solid var(--line); transition: .2s ease; }
+.contact-card a { display: grid; grid-template-columns: 52px 1fr auto; align-items: center; gap: 18px; padding: 20px 24px; border-bottom: 1px solid var(--line); transition: .2s ease; }
 .contact-card a:last-child { border-bottom: 0; }
 .contact-card a:hover { padding-left: 36px; background: white; }
-.contact-card span { color: var(--muted); font-size: 14px; }
-.contact-card strong { font-size: 16px; }
+.contact-copy { display: flex; flex-direction: column; min-width: 0; }
+.contact-copy small { color: var(--muted); font-size: 12px; }
+.contact-copy strong { overflow-wrap: anywhere; font-size: 16px; }
+.contact-icon { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; }
+.contact-icon svg { width: 22px; height: 22px; fill: currentColor; }
+.contact-icon.kakao { color: #3c1e1e; background: #fee500; }
+.contact-icon.instagram { color: white; background: radial-gradient(circle at 30% 110%, #ffd600 0 15%, #ff7a00 35%, #ff0169 60%, #d300c5 78%, #7638fa 100%); }
+.contact-icon.phone { color: white; background: var(--brown); }
+.contact-icon.mail { color: white; background: var(--gold); }
+.contact-arrow { color: var(--brown); font-size: 20px; font-weight: 800; }
 
 footer { padding: 56px 0; color: rgba(255,255,255,.72); background: #2e1f19; }
 .footer-wrap { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; }
 .footer-wrap img { width: 180px; }
 .footer-wrap p { margin-bottom: 5px; font-size: 13px; }
 .copyright { margin-top: 16px; opacity: .65; }
-.floating-kakao { position: fixed; z-index: 900; right: 24px; bottom: 24px; display: grid; place-items: center; width: 82px; height: 82px; color: #3f2b00; background: #fee500; border-radius: 50%; box-shadow: 0 14px 35px rgba(0,0,0,.18); font-size: 13px; font-weight: 900; transition: .25s; }
+.floating-kakao { position: fixed; z-index: 900; right: 24px; bottom: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; width: 88px; height: 88px; color: #3f2b00; background: #fee500; border-radius: 50%; box-shadow: 0 14px 35px rgba(0,0,0,.18); font-size: 11px; font-weight: 900; transition: .25s; }
+.floating-kakao svg { width: 28px; height: 28px; fill: currentColor; }
 .floating-kakao:hover { transform: translateY(-4px) scale(1.03); }
 
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
@@ -202,7 +211,9 @@ footer { padding: 56px 0; color: rgba(255,255,255,.72); background: #2e1f19; }
   .project-benefits { grid-template-columns: 1fr; }
   .project-benefits span:last-child { grid-column: auto; }
   .contact-grid { gap: 40px; }
-  .contact-card a { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .contact-card a { grid-template-columns: 46px 1fr auto; gap: 14px; padding: 18px; }
+  .contact-icon { width: 42px; height: 42px; }
+  .contact-copy strong { font-size: 14px; }
   .footer-wrap { flex-direction: column; }
   .floating-kakao { right: 16px; bottom: 16px; width: 68px; height: 68px; font-size: 12px; }
 }
