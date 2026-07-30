@@ -1,39 +1,24 @@
-const header = document.querySelector('.site-header');
-const menuButton = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.main-nav');
-const navLinks = document.querySelectorAll('.main-nav a');
-const reveals = document.querySelectorAll('.reveal');
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  items.forEach((item, index) => {
+    item.style.transitionDelay = `${Math.min(index * 55, 260)}ms`;
+    observer.observe(item);
+  });
 
-const updateHeader = () => {
-  header.classList.toggle('scrolled', window.scrollY > 20);
-};
-
-window.addEventListener('scroll', updateHeader, { passive: true });
-updateHeader();
-
-menuButton.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  document.body.classList.toggle('menu-open', isOpen);
-  menuButton.setAttribute('aria-expanded', String(isOpen));
-});
-
-navLinks.forEach((link) => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    document.body.classList.remove('menu-open');
-    menuButton.setAttribute('aria-expanded', 'false');
+  const saveButton = document.querySelector(".save-contact");
+  const toast = document.querySelector(".toast");
+  let toastTimer;
+  saveButton?.addEventListener("click", () => {
+    clearTimeout(toastTimer);
+    toast.classList.add("show");
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 3600);
   });
 });
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.14 });
-
-reveals.forEach((item) => observer.observe(item));
-
-document.getElementById('year').textContent = new Date().getFullYear();
